@@ -1,11 +1,11 @@
 import ThreadCard from "@/components/cards/ThreadCard";
-import { fetchPost } from "@/lib/actions/thread.action";
+import { fetchPosts } from "@/lib/actions/thread.action";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 async function Home() {
-  const result = await fetchPost(1, 30);
+  const result = await fetchPosts(1, 30);
   const user = await currentUser();
 
   if (user) {
